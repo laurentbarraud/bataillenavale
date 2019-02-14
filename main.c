@@ -1153,7 +1153,7 @@ void afficherScoreFinal()
     tempsEcoule = ( (double)(endTime - startTime) ) /CLOCKS_PER_SEC;  // on divise par la constante pour avoir la valeur en secondes
     tempsEcouleArrondi = ceil(tempsEcoule);                            // arrondi à la valeur supérieure
     tempsRestant = 420 - tempsEcouleArrondi;
-    scoreFinal = tempsRestant - (5*nbCoupsJoues);
+    scoreFinal = tempsRestant - (2*nbCoupsJoues);
     logEvent("[système] - Calcul du score final");
 
         // si l'utilisateur a dépassé le temps et qu'il reste des bateaux entiers
