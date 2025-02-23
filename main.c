@@ -1,6 +1,7 @@
 //*** Jeu de bataille navale, réalisé pour le cours de MA-20 - Application du C, au CPNV. ***
 //*** Laurent Barraud - classe SI-CA1a - 30-01-2019 *****************************************
-//*** version 1.0 ***************************************************************************
+//*** Révisé le 23-02-2025
+//*** version 1.1 ***************************************************************************
 
 
 #include <stdio.h>
@@ -56,7 +57,7 @@ int tousBateauxCoules = VALEUR_INIT;
 void Gotoxy(int x, int y);
 
 // affiche le menu principal
-void menu();
+int menu();
 
 // lance une nouvelle partie
 void jouer();
@@ -162,7 +163,7 @@ void Gotoxy(int x, int y)
   SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), coord);
 }
 
-void menu()
+int menu()
 {
     char choix = '\0';
     int entreeValide = VALEUR_INIT;
@@ -183,7 +184,6 @@ void menu()
             // effectue le choix du menu principal
             switch(choix)
             {
-
                 case 'j' :
                 case 'J' :
 
@@ -196,17 +196,14 @@ void menu()
 
                 case 'a' :
                 case 'A' :
-
                     logEvent("[système] - écran d'aide démarré");
                     system("cls");
                     // affiche le menu d'aide
                     menuAide();
-
                 break;
 
                 case 's' :
                 case 'S' :
-
                     logEvent("[système] - écran des meilleurs scores démarré");
                     system("cls");
                     // affiche le menu des meilleurs scores
@@ -215,30 +212,27 @@ void menu()
 
                 case 'q' :
                 case 'Q' :
-
                     logEvent("[système] - programme quitté par l'utilisateur");
                     system("cls");
                     Gotoxy(10,8); printf("Au revoir !");
                     Gotoxy(10,15);
-                    return EXIT_SUCCESS;
+                    exit(EXIT_SUCCESS);
                 break;
 
                 case 'd' :
                 case 'D' :
-
                     logEvent("[système] - mode debug activé");
                     modeDebug = 1;
                     Gotoxy(28,28); color(3,0); printf("== Mode debug active =="); color(7,0);
                     entreeValide = 0;
-
                 break;
 
             default: entreeValide = 0;
          }
 
-
         } while (entreeValide == 0);
 
+        return 0;
 }
 
 void jouer()
@@ -533,7 +527,7 @@ void enregistrerJoueur()
     FILE *fichier = NULL;
 
     // ouverture du premier fichier en mode lecture et écriture depuis le début
-    fichier = fopen("joueurs.txt ", "r+");
+    fichier = fopen("joueurs.txt ", "a+");
 
     // appende une ligne supplémentaire, contenant le joueur sélectionné pour jouer
     fprintf(fichier, "\n%s", prenom);
@@ -553,10 +547,10 @@ void effacerPremierJoueur()
     FILE *fichier2 = NULL;
 
     // ouverture du premier fichier en lecture et écriture par le début.
-    fichier = fopen("joueurs.txt", "r+");
+    fichier = fopen("joueurs.txt", "a+");
 
     // ouverture du deuxième fichier en lecture et écriture par le début.
-    fichier2 = fopen("joueurs2.txt", "r+");
+    fichier2 = fopen("joueurs2.txt", "a+");
 
     nbLignes = 1;
 
@@ -1116,7 +1110,6 @@ int choixLigne()
 
 int statutBateau(int typeBateau)
 {
-
     int nbCasesBateauIntactes = 0;
     int valeurTableau = 0;
     int i, j;
@@ -1128,8 +1121,8 @@ int statutBateau(int typeBateau)
                 // convertit en assignant la valeur char de tabBateaux à une variable int
                 valeurTableau = tabBateaux[i][j];
 
-                     // si la valeur du tableau est égale au type de bateau entré en argument (1 à 5) + 48, car on récupère la valeur ASCII.
-                    if (valeurTableau == (typeBateau + 48))
+                     // si la valeur du tableau est égale au type de bateau entré en argument (1 à 5)
+                    if (valeurTableau == (typeBateau))
                     {
                         // on ajoute un à la variable qui compte les cases restantes du bateau
                         nbCasesBateauIntactes++;
@@ -1296,7 +1289,7 @@ void menuAide()
     main();
 }
 
-void logEvent(char evenement[150])
+void logEvent(char evenement[100])
 {
     time_t actTime;
     struct tm *timeComp;
