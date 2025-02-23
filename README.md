@@ -1,14 +1,13 @@
 ## Jeu de bataille navale
 Réalisé pour le cours de MA-20 - Application du C, au CPNV. 
-
-<p align="center">
-<img src="https://raw.githubusercontent.com/laurentbarraud/bataillenavale/refs/heads/master/bataille-navale-screenshot.jpg" width="500" alt="screenshot de la bataille navale" >
-</p>
-
 - Le joueur a 10 minutes pour couler tous les bateaux de l'ordinateur
 - Au premier démarrage, le programme va créer des fichiers textes dans le dossier où il est executé pour sauvegarder les scores et la liste des joueurs.
 
-# Installation
+<p align="center">
+<img src="https://raw.githubusercontent.com/laurentbarraud/bataillenavale/refs/heads/master/bataille-navale-screenshot.jpg" width="500" height="500" alt="screenshot de la bataille navale" >
+</p>
+
+### Installation
 1. Télécharger le fichier main.c dans un dossier local
 2. Dans ce dossier local, créer un nouveau dossier et l'appeler "grilles" (sans les guillemets)
 3. Dans le dossier grilles, créer des fichiers textes "grille01.txt", "grille02.txt", etc. jusqu'à 20.
