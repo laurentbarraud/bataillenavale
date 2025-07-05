@@ -1,4 +1,4 @@
-## Naval battle game
+### Naval battle game
 Completed for the MA-20 - Application of C, at CPNV. 
 - The player has 10 minutes to sink all the computer boats
 - At the first start, the program will create text files in the folder where it is run to save scores and players list.
@@ -6,6 +6,8 @@ Completed for the MA-20 - Application of C, at CPNV.
 <p align="center">
 <img src="https://raw.githubusercontent.com/laurentbarraud/bataillenavale/refs/heads/master/bataille-navale-screenshot.jpg" height="300" alt="screenshot of bataille navale" >
 </p>
+
+![Language](https://img.shields.io/badge/language-french-darkblue)
 
 ### Installation
 1. Download the main. c file to a local folder
