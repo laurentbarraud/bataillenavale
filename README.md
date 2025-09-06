@@ -22,5 +22,6 @@ Completed for the MA-20 - Application of C, at CPNV.
  - Fill in the character "0" all the rest of the grid to have 10 lines of 10 characters.
 5. Compile main.c file. 
 I recommend using a C compiler from a popular IDE like CLion or Eclipse.
+Alternatively, you can install MinGW, a minimalist open-source C compiler for Windows and compile with GCC. 
 6. Run main.exe that has been produced.
 
